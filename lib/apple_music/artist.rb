@@ -38,22 +38,22 @@ module AppleMusic
 
       # e.g. AppleMusic::Artist.related_albums(178834)
       def related_albums(id, **options)
-        get_relationship(id, :albums, options)
+        get_relationship(id, :albums, **options)
       end
 
       # e.g. AppleMusic::Artist.related_genres(178834)
       def related_genres(id, **options)
-        get_relationship(id, :genres, options)
+        get_relationship(id, :genres, **options)
       end
 
       # e.g. AppleMusic::Artist.related_playlists(178834)
       def related_playlists(id, **options)
-        get_relationship(id, :playlists, options)
+        get_relationship(id, :playlists, **options)
       end
 
       # e.g. AppleMusic::Artist.related_station(178834)
       def related_station(id, **options)
-        get_relationship(id, :station, options).first
+        get_relationship(id, :station, **options).first
       end
 
       def search(term, **options)
