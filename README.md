@@ -1,6 +1,7 @@
 # AppleMusic
 
 This is a ruby wrapper for the [Apple Music API](https://developer.apple.com/documentation/applemusicapi).
+Forked from [apple_music gem](https://github.com/yhirano55/apple_music) with the goal of making it more production ready for our own use.
 
 ## Installation
 
