@@ -52,17 +52,17 @@ module AppleMusic
 
       # e.g. AppleMusic::Album.related_artists(310730204)
       def related_artists(id, **options)
-        get_relationship(id, :artists, options)
+        get_relationship(id, :artists, **options)
       end
 
       # e.g. AppleMusic::Album.related_genres(310730204)
       def related_genres(id, **options)
-        get_relationship(id, :genres, options)
+        get_relationship(id, :genres, **options)
       end
 
       # e.g. AppleMusic::Album.related_tracks(310730204)
       def related_tracks(id, **options)
-        get_relationship(id, :tracks, options)
+        get_relationship(id, :tracks, **options)
       end
 
       def search(term, **options)
