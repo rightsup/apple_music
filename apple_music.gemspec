@@ -7,10 +7,10 @@ require 'apple_music/version'
 Gem::Specification.new do |s|
   s.name          = 'apple_music'
   s.version       = AppleMusic::VERSION
-  s.authors       = ['Yoshiyuki Hirano']
-  s.email         = ['yhirano@me.com']
+  s.authors       = ['Yoshiyuki Hirano', "Rights'Up"]
+  s.email         = ['yhirano@me.com', 'hello@rightsup.com', 'diego@eddy.app']
 
-  s.homepage      = 'https://github.com/yhirano55/apple_music'
+  s.homepage      = 'https://github.com/rightsup/apple_music'
   s.summary       = 'Apple Music API Client Ruby'
   s.description   = s.summary
   s.license       = 'MIT'
