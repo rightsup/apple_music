@@ -16,9 +16,9 @@ module AppleMusic
       # e.g. AppleMusic::Song.list(isrc: 'NLH851300057')
       def list(**options)
         if options[:ids]
-          get_collection_by_ids(options.delete(:ids), options)
+          get_collection_by_ids(options.delete(:ids), **options)
         elsif options[:isrc]
-          get_collection_by_isrc(options.delete(:isrc), options)
+          get_collection_by_isrc(options.delete(:isrc), **options)
         else
           raise ParameterMissing, 'required parameter :ids or :isrc is missing'
         end
@@ -52,22 +52,22 @@ module AppleMusic
 
       # e.g. AppleMusic::Song.related_albums(900032829)
       def related_albums(id, **options)
-        get_relationship(id, :albums, options)
+        get_relationship(id, :albums, **options)
       end
 
       # e.g. AppleMusic::Song.related_artists(900032829)
       def related_artists(id, **options)
-        get_relationship(id, :artists, options)
+        get_relationship(id, :artists, **options)
       end
 
       # e.g. AppleMusic::Song.related_genres(900032829)
       def related_genres(id, **options)
-        get_relationship(id, :genres, options)
+        get_relationship(id, :genres, **options)
       end
 
       # e.g. AppleMusic::Song.related_station(900032829)
       def related_station(id, **options)
-        get_relationship(id, :station, options).first
+        get_relationship(id, :station, **options).first
       end
 
       def search(term, **options)
