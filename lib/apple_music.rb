@@ -30,6 +30,15 @@ module AppleMusic # :nodoc:
   autoload :Station,        'apple_music/station'
   autoload :Storefront,     'apple_music/storefront'
 
+  class RequestError < StandardError
+    attr_reader :response_status
+
+    def initialize(response)
+      @response_status = response.status
+      super("Status: #{response.status} (#{response.reason_phrase})")
+    end
+  end
+
   class << self
     def search(**options)
       Search.search(**options)
@@ -37,6 +46,13 @@ module AppleMusic # :nodoc:
 
     def search_hint(**options)
       Search.search_hint(**options)
+    end
+
+    def get(path, **option)
+      response = super(path, **option)
+      raise ::AppleMusic::RequestError.new(response) if response.status != 200
+
+      response
     end
   end
 end
