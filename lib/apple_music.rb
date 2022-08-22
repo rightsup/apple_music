@@ -48,8 +48,8 @@ module AppleMusic # :nodoc:
       Search.search_hint(**options)
     end
 
-    def get(path, **option)
-      response = super(path, **option)
+    def get(path, options = {})
+      response = super(path, **options)
       raise ::AppleMusic::RequestError.new(response) if response.status != 200
 
       response
