@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'logger'
 require 'date'
 
 require 'apple_music/connection'
@@ -59,7 +59,9 @@ module AppleMusic # :nodoc:
     end
 
     def get(path, options = {})
+      Rails.logger.debug { "[Apple Music API] Requesting #{path} - #{options.inspect}" }
       response = super(path, **options)
+      Rails.logger.debug { "[Apple Music API] Response #{path} - #{response.inspect}" }
 
       return ::AppleMusic::EmptyResponse.new if response.status == 404
 
