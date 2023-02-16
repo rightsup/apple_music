@@ -40,6 +40,12 @@ module AppleMusic # :nodoc:
   end
 
   class EmptyResponse
+    attr_reader :response
+
+    def initialize(response)
+      @response = response
+    end
+
     def body
       {}
     end
@@ -60,8 +66,6 @@ module AppleMusic # :nodoc:
 
     def get(path, options = {})
       response = super(path, **options)
-
-      return ::AppleMusic::EmptyResponse.new if response.status == 404
 
       raise ::AppleMusic::RequestError.new(response) if response.status != 200
 
