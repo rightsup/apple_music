@@ -61,7 +61,7 @@ module AppleMusic # :nodoc:
     def get(path, options = {})
       response = super(path, **options)
 
-      return EmptyResponse.new if response.status == 404
+      return ::AppleMusic::EmptyResponse.new if response.status == 404
 
       raise ::AppleMusic::RequestError.new(response) if response.status != 200
 
