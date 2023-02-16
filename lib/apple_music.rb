@@ -39,6 +39,16 @@ module AppleMusic # :nodoc:
     end
   end
 
+  def EmptyResponse
+    def body
+      {}
+    end
+
+    def status
+      404
+    end
+  end
+
   class << self
     def search(**options)
       Search.search(**options)
@@ -50,6 +60,9 @@ module AppleMusic # :nodoc:
 
     def get(path, options = {})
       response = super(path, **options)
+
+      return EmptyResponse.new if response.status == 404
+
       raise ::AppleMusic::RequestError.new(response) if response.status != 200
 
       response
