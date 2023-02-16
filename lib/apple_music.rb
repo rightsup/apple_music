@@ -31,10 +31,10 @@ module AppleMusic # :nodoc:
   autoload :Storefront,     'apple_music/storefront'
 
   class RequestError < StandardError
-    attr_reader :response_status
+    attr_reader :response
 
     def initialize(response)
-      @response_status = response.status
+      @response = response
       super("Status: #{response.status} (#{response.reason_phrase})")
     end
   end
