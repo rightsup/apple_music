@@ -39,7 +39,7 @@ module AppleMusic # :nodoc:
     end
   end
 
-  def EmptyResponse
+  class EmptyResponse
     def body
       {}
     end
