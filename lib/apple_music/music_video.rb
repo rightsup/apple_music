@@ -16,9 +16,9 @@ module AppleMusic
       # e.g. AppleMusic::MusicVideo.list(isrc: 'GBDCE0900012')
       def list(**options)
         if options[:ids]
-          get_collection_by_ids(options.delete(:ids), options)
+          get_collection_by_ids(options.delete(:ids), **options)
         elsif options[:isrc]
-          get_collection_by_isrc(options.delete(:isrc), options)
+          get_collection_by_isrc(options.delete(:isrc), **options)
         else
           raise ParameterMissing, 'required parameter :ids or :isrc is missing'
         end
@@ -52,17 +52,17 @@ module AppleMusic
 
       # e.g. AppleMusic::MusicVideo.related_albums(401135199)
       def related_albums(id, **options)
-        get_relationship(id, :albums, options)
+        get_relationship(id, :albums, **options)
       end
 
       # e.g. AppleMusic::MusicVideo.related_artists(401135199)
       def related_artists(id, **options)
-        get_relationship(id, :artists, options)
+        get_relationship(id, :artists, **options)
       end
 
       # e.g. AppleMusic::MusicVideo.related_genres(401135199)
       def related_genres(id, **options)
-        get_relationship(id, :genres, options)
+        get_relationship(id, :genres, **options)
       end
 
       def search(term, **options)
