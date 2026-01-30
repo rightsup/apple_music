@@ -27,18 +27,20 @@ jobs:
 
       matrix:
         ruby:
-          - ruby:2.7
-          - ruby:3.0
-          - rubylang/ruby:master-nightly-bionic
+          - ruby:3.2
+          - ruby:3.3
+          - ruby:3.4
+          - ruby:4.0
+          - rubylang/ruby:master-nightly-jammy
         include:
-          - ruby: rubylang/ruby:master-nightly-bionic
+          - ruby: rubylang/ruby:master-nightly-jammy
             allow_failures: "true"
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Cache vendor/bundle
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         id: cache_gem
         with:
           path: vendor/bundle

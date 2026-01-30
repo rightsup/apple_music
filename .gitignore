@@ -13,3 +13,6 @@
 # apple music secret file
 *.p8
 .env
+
+# Intelliji Idea/Rubymine
+.idea
